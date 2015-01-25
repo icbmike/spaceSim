@@ -1,0 +1,22 @@
+{
+  "name": "threeJsShananigans",
+  "version": "1.0.0",
+  "description": "Playing around with three.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mike Little",
+  "license": "ISC",
+  "dependencies": {
+    "browserify": "^8.1.1",
+    "browserify-shim": "^3.8.2",
+    "three": "^0.69.0"
+  },
+  "browserify": {
+    "transform": [ "browserify-shim" ]
+  },
+  "browserify-shim": {
+    "three": "global:THREE"
+  }
+}
