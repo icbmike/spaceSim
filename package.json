@@ -10,8 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "browserify": "^8.1.1",
-    "browserify-shim": "^3.8.2",
-    "three": "^0.69.0"
+    "browserify-shim": "^3.8.2"
   },
   "browserify": {
     "transform": [ "browserify-shim" ]
