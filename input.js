@@ -6,13 +6,10 @@ module.exports = function(camera, scene){
 
   return function(moveEvent){
 
-    moveX = moveEvent.clientX * 0.005;
-    moveY = moveEvent.clientY * 0.005;
+    //Can only move the camera += 10 on either axis;
+    camera.position.x = (moveEvent.clientX / window.innerWidth * 20) - 10;
+    camera.position.z = -1 * ((moveEvent.clientY / window.innerHeight * 20) - 10);
 
-    camera.position.x += (moveX - camera.position.x) * 0.5;
-    camera.position.y += (moveY - camera.position.y) * 0.5;
     camera.lookAt(scene.position);
-
-    console.log(camera.position);
   };
 }
