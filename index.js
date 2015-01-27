@@ -14,24 +14,16 @@ renderer.setSize( window.innerWidth, window.innerHeight );
 document.getElementsByTagName('body')[0].appendChild( renderer.domElement );
 document.addEventListener('mousemove', input(camera, scene));
 
-setupScene(scene);
+var updateDispatcher = new THREE.EventDispatcher();
+
+setupScene(scene, updateDispatcher);
 
 var light = new THREE.AmbientLight( 0x404040 ); // soft white light
 scene.add( light );
 
-var pointLight = new THREE.PointLight( 0xff0000, 1, 100 );
-pointLight.position.set( 0, 0, 30 );
-scene.add( pointLight );
-
-var pointLightHeight = 0;
-
 //Kick off the render loop
 function render(timeStamp) {
-    pointLightHeight += 0.01;
-    if(pointLightHeight === Math.PI * 2)
-      pointLightHeight = 0;
-
-    pointLight.position.set( 0, 0, 30 * Math.cos(pointLightHeight));
+    updateDispatcher.dispatchEvent({type:'update'});
 
     renderer.render( scene, camera );
     requestAnimationFrame( render );
