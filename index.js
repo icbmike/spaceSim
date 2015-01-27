@@ -18,9 +18,6 @@ var updateDispatcher = new THREE.EventDispatcher();
 
 setupScene(scene, updateDispatcher);
 
-var light = new THREE.AmbientLight( 0x404040 ); // soft white light
-scene.add( light );
-
 //Kick off the render loop
 function render(timeStamp) {
     updateDispatcher.dispatchEvent({type:'update'});
