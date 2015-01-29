@@ -1,10 +1,13 @@
-var planet = require('./planet');
+var planet = require('./planet'),
+    star = require('./star');
 
 module.exports = function(scene, updateDispatcher){
   //Create a single planet(cube) for now;
-  scene.add( planet(0, 1, 0, 'white', 1, 1, updateDispatcher));
-  scene.add( planet(0, -1, 0, 'white', 3, 3, updateDispatcher));
+  scene.add( planet(0, 7, 0, 'white', 7, 1, updateDispatcher));
+  scene.add( planet(0, -5, 0, 'white', 6, 3, updateDispatcher));
   scene.add( planet(0, 3, 0, 'white', 5, -5, updateDispatcher));
+  scene.add( star(0, 0, 0, updateDispatcher));
+
 
   var ambientLight = new THREE.AmbientLight( 0x404040 ); // soft white light
   scene.add( ambientLight );

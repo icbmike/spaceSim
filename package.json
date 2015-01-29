@@ -10,10 +10,14 @@
   "license": "ISC",
   "dependencies": {
     "browserify": "^8.1.1",
-    "browserify-shim": "^3.8.2"
+    "browserify-shim": "^3.8.2",
+    "stringify": "^3.1.0"
   },
   "browserify": {
-    "transform": [ "browserify-shim" ]
+    "transform": [
+      "browserify-shim",
+      ["stringify", {"extensions": [".txt"]}]
+    ]
   },
   "browserify-shim": {
     "three": "global:THREE"
